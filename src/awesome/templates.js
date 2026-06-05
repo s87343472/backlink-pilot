@@ -5,7 +5,7 @@ import { utmUrl } from '../config.js';
 // Pre-configured awesome-list targets
 const TARGETS = {
   'chinese-independent-developer': {
-    repo: 'nichetools/chinese-independent-developer',
+    repo: '1c7/chinese-independent-developer',
     template: 'chinese',
   },
   'awesome-privacy': {
@@ -21,7 +21,7 @@ const TARGETS = {
     template: 'chinese',
   },
   'awesome-pwa': {
-    repo: 'nichetools/awesome-pwa',
+    repo: 'hemanth/awesome-pwa',
     template: 'english',
   },
   'awesome-indie': {
@@ -37,11 +37,15 @@ const TARGETS = {
     template: 'english',
   },
   'awesome-no-login-web-apps': {
-    repo: 'nichetools/awesome-no-login-web-apps',
+    repo: 'aviaryan/awesome-no-login-web-apps',
     template: 'english',
   },
   'awesome-astro': {
     repo: 'one-aalam/awesome-astro',
+    template: 'english',
+  },
+  'awesome-ai-tools': {
+    repo: 'mahseema/awesome-ai-tools',
     template: 'english',
   },
 };
