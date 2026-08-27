@@ -988,6 +988,13 @@ overseas_general:
 # ============================================================
 overseas_directories:
 
+  - name: Phyco
+    submit_url: https://phyco.org/submit
+    type: form
+    auto: yes
+    lang: en
+    notes: "Website catalogue with verified user reviews, 16 categories; free, no account, human moderation"
+
   - name: Sitelike
     submit_url: https://www.sitelike.org/add-site
     type: form
