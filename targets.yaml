@@ -988,6 +988,13 @@ overseas_general:
 # ============================================================
 overseas_directories:
 
+  - name: SaaSCity
+    submit_url: https://saascity.io/submit
+    type: form
+    auto: yes
+    lang: en
+    notes: Gamified SaaS directory. DR 59, free listing, manually reviewed within 24h
+
   - name: Sitelike
     submit_url: https://www.sitelike.org/add-site
     type: form
