@@ -993,7 +993,7 @@ overseas_directories:
     type: form
     auto: yes
     lang: en
-    notes: Gamified SaaS directory. DR 46, free listing, manually reviewed within 24h
+    notes: Gamified SaaS directory. DR 59, free listing, manually reviewed within 24h
 
   - name: Sitelike
     submit_url: https://www.sitelike.org/add-site
