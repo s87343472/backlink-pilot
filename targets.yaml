@@ -982,6 +982,13 @@ overseas_general:
     lang: en
     notes: One-time payment software
 
+  - name: Nick Launches
+    submit_url: https://nicklaunches.com/submit/
+    type: form
+    auto: manual
+    lang: en
+    notes: "DR 75. Launch/discovery directory, dofollow. Sign-in required, so not a plain form POST; also exposes an official MCP server at https://nicklaunches.com/api/mcp/ for agent-drafted listings."
+
 # ============================================================
 # Overseas Web Directories / 海外网址目录站
 # SEO backlink value — most have simple submit forms
