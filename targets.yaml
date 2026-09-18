@@ -988,6 +988,13 @@ overseas_general:
 # ============================================================
 overseas_directories:
 
+  - name: SaaS Launch Directories Explorer
+    submit_url: https://themerchcog.github.io/saas-launch-directories-2026/
+    type: form
+    auto: manual
+    lang: en
+    notes: "Searchable database & backlink audit toolkit covering 100+ verified SaaS & AI directories with DoFollow audit and character limits"
+
   - name: Sitelike
     submit_url: https://www.sitelike.org/add-site
     type: form
