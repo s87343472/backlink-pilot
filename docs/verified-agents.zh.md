@@ -8,6 +8,10 @@
 
 英文对照：[verified-agents.md](verified-agents.md)。
 
+### 欢迎反馈
+
+用任意 Agent（含矩阵里「未验证」的）按本仓库手册测过的，欢迎开 [GitHub Issue](https://github.com/s87343472/backlink-pilot/issues) 或 PR：能不能读懂 `AGENTS`、卡在哪一步、是否遵守日限额与人闸。跑通上文标准的，请按文末维护者清单发 PR，把该 Agent 标成已验证。勿提交实填库、真实站名单、密码 / cookie。方法、模板、翻译改进见 [contributing.md](contributing.md)。
+
 ---
 
 ## 「已验证」指什么

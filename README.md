@@ -72,6 +72,8 @@ Want local Chrome scripts / old adapters? Check out [`old`](https://github.com/s
 
 Docs are designed to be agent-agnostic (markdown runbook + templates), but **unverified ≠ proven to follow them**. Criteria, full matrix, and how that differs from branch `old` (v2.1 CLI toolkit targets): [docs/verified-agents.md](docs/verified-agents.md).
 
+If you tried any Agent with this playbook (including ones still listed as unverified), please open an [Issue](https://github.com/s87343472/backlink-pilot/issues) or PR: could it follow `AGENTS`, where did it stick, and did it respect the daily cap and human gates? If it meets the verification criteria, send a PR per the checklist at the end of [docs/verified-agents.md](docs/verified-agents.md) to mark that Agent verified (no filled ledgers, real site lists, passwords, or cookies). Doc, template, and translation fixes are welcome too — see [docs/contributing.md](docs/contributing.md).
+
 ### For agents
 
 **Canonical runbook: [`AGENTS.md`](AGENTS.md)** (Chinese: [`AGENTS.zh.md`](AGENTS.zh.md)). Summary:

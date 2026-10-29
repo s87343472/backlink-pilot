@@ -8,6 +8,10 @@ The docs are **designed** to be agent-agnostic (markdown runbook + empty templat
 
 Chinese twin: [verified-agents.zh.md](verified-agents.zh.md).
 
+### Feedback welcome
+
+If you tried any Agent with this playbook (including ones still **Unverified** in the matrix), please open a [GitHub Issue](https://github.com/s87343472/backlink-pilot/issues) or PR: could it follow `AGENTS`, where did it stick, and did it respect the daily cap and human gates? If it meets the criteria above, send a PR using the maintainer checklist at the end of this page to mark that Agent verified. Do not commit filled ledgers, real site lists, passwords, or cookies. Method, template, and translation fixes: [contributing.md](contributing.md).
+
 ---
 
 ## What “verified” means

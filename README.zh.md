@@ -72,6 +72,8 @@
 
 文档设计成 Agent 无关（Markdown 手册 + 模板），但**未验证 ≠ 已验证能跟着做**。完整标准、矩阵表、与分支 `old`（v2.1 CLI 工具箱目标）的区别，见 [docs/verified-agents.zh.md](docs/verified-agents.zh.md)。
 
+用任意 Agent（含上表未验证的）按本仓库手册测过的，欢迎开 [Issue](https://github.com/s87343472/backlink-pilot/issues) / PR 反馈：能不能读懂 `AGENTS`、卡在哪、是否遵守日限额与人闸。跑通验证标准的，请按 [docs/verified-agents.zh.md](docs/verified-agents.zh.md) 文末清单发 PR，把该 Agent 标成已验证（勿提交实填库、真实站名单、密码 / cookie）。文档、模板、翻译的改进也欢迎，见 [docs/contributing.md](docs/contributing.md)。
+
 ### 给 Agent
 
 **完整可执行手册以 [`AGENTS.zh.md`](AGENTS.zh.md) 为准**（英文：[`AGENTS.md`](AGENTS.md)）。摘要如下：
