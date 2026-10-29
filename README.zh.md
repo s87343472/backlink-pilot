@@ -1,142 +1,138 @@
 # Backlink Pilot v3
 
-**用 AI Agent 按可控节奏做目录 / 列表外链：默认免费与免费排队，把交换链、徽章、所有权验证当成可配置成本，并用账本沉淀成可复用的外链库。**
+用 AI Agent 按可控节奏做目录 / 列表外链：默认免费与免费排队，把交换链、徽章、所有权验证当成可配置成本，沉淀成可复用的外链库。
 
-| 你是谁 | 从哪读 |
-|--------|--------|
-| **人类（产品 / 运营）** | 下文 [给人类](#给人类for-humans) |
-| **AI Agent** | 下文 [给 Agent](#给-agentfor-agents) 摘要 → 完整操作手册 [`AGENTS.zh.md`](AGENTS.zh.md) |
-
-[English](README.md) · [完整指南](docs/guide.zh.md) · [文档首页](docs/index.md) · 旧 CLI 分支 [`old`](https://github.com/s87343472/backlink-pilot/tree/old)（v2.1）
-
-> **必读免责：** [docs/disclaimer.zh.md](docs/disclaimer.zh.md) — 搜索引擎反对操纵排名的链接方案；本仓库**不承诺排名**。默认真正提交约 **2–4 个站 / 天**，不要一天交几十上百。
+[English](README.md) · [文档首页](docs/index.md) · [完整指南](docs/guide.zh.md) · Agent 手册 [`AGENTS.zh.md`](AGENTS.zh.md) · 旧版 CLI 分支 [`old`](https://github.com/s87343472/backlink-pilot/tree/old)（v2.1）
 
 ---
 
-## 给人类（For humans）
+## 是什么
 
-### 外链在这里指什么
+**Backlink Pilot** 是一份面向 **AI Agent（含 Grok Bot 等）** 的外链作业 playbook，不是「一条命令打几百站」的黑盒脚本。
 
-面向独立产品常见的 **目录站提交、免费排队 launch、资源 / awesome 列表 PR** 等「可申请的外链渠道」。不是买卖链接教程，也不是「一条命令打几百站」的脚本主叙事（那套在分支 `old`）。
+| 版本 | 内容 |
+|------|------|
+| **v3（本分支 `main`）** | 策略档、日限额、邮件闭环、`/links`、外链库账本、风险说明；给人看的 README + 给 Agent 的 [`AGENTS.zh.md`](AGENTS.zh.md) |
+| **v2.1（分支 [`old`](https://github.com/s87343472/backlink-pilot/tree/old)）** | 旧 CLI：OpenClaw / Claude Code / bb-browser / Playwright 等自动化工具箱 |
 
-目录表单差异大，常要登录、验证码、排期、邮件验证。真正难的是 **策略判断 + 邮件闭环 + 控速**；Agent 适合扛重复劳动，人适合拍板例外与改站点。
+仓库里有：方法文档、空模板（产品卡、library CSV、`/links` 示例）、历史参考清单 `targets.yaml`（**未再维护**）。  
+仓库里没有：可运行批量提交主程序（在 `old`）、真实提交日志、密码 / cookie、填好的目录站名单。
 
-### 为什么要控速
+---
 
-短时间、大规模、低相关、模式化外链有被搜索引擎视为垃圾链接或触发处理的风险。数量 ≠ 排名。本 playbook 的默认建议是：
+## 有什么用
 
-1. 每天真正提交约 **2–4** 个（筛站可批量，提交必须控速）
-2. 描述真实、分类匹配；**地点 / 邮箱与条款、隐私政策一致**
-3. 目录只是渠道之一；更重视产品与自然提及
-4. 交换链 / 徽章集中在 **`/links`**，便于日后下线
-5. 默认跳过付费插队与**强制**互链；升档自担风险
+独立产品上线后，常见需求是往**目录站、免费排队 launch、资源 / awesome 列表**等渠道申请外链。表单差异大，还经常要登录、验证码、排期和邮件验证——难的是 **策略判断 + 邮件闭环 + 控速**，不是单次填表。
 
-完整表述见 [免责声明](docs/disclaimer.zh.md)。
+本项目帮你：
 
-### 策略档（你定一档，写进给 Agent 的说明）
+1. **定规则**：保守 / 标准 / 进取三档；默认 **标准**（免费与免费排队；自愿徽章与域名所有权验证可以；付费与强制互链默认跳过）
+2. **控节奏**：真正提交约 **每天 2–4 个**，筛站可批量、提交必须慢
+3. **可复用**：外链库账本记录站点属性与各产品状态，下一款产品优先打「已验证过」的站
+4. **可交接**：人只处理 DNS/meta、域名邮箱、付费/升档等例外；Agent 扛研究、提交、验证链接与记账
+5. **说清楚风险**：目录链接价值参差，数量 ≠ 排名（见文末免责）
 
-| 档位 | 允许 | 默认跳过 |
-|------|------|----------|
-| 保守 | 免费、免费排队 | 付费、强制徽章、互链、点赞换积分 |
-| **标准（推荐）** | 上 + **自愿**挂徽章换 dofollow、域名 meta / DNS 所有权验证 | 付费；**强制**互链才收录；点赞换积分（除非你单独授权） |
-| 进取 | 标准 + 你自设上限的小额付费插队 | 强制互链仍建议谨慎；若放开只用 `/links` |
+它**不是**排名承诺，也不是买卖链接或规避搜索处罚的教程。
 
-细节：[docs/strategy.zh.md](docs/strategy.zh.md)。
+---
 
-### `/links` 页与外链库
+## 如何用
 
-- **交换链 / 徽章：** 业界常见做法是建 `yoursite.example/links`，集中放伙伴链接与徽章，首页只放入口。见 [reciprocity](docs/reciprocity.zh.md) 与 [templates/links-page.example.md](templates/links-page.example.md)。标准档**默认不接强制互链**。
-- **外链库账本：** 每次筛站 / 提交写成一行 CSV，新产品优先打「已验证过」的站。空表：[templates/library.schema.csv](templates/library.schema.csv)。**实填库本地留，不要推进本公开仓库。** 说明：[library](docs/library.zh.md)。
-- 仓库里的 `targets.yaml` 是历史大池，文首已标 **未再维护**，仅供参考。
+### 给人类
 
-### 你怎么 brief 一个 Agent（最短路径）
+**最短路径：**
 
-1. 复制 [templates/product.example.yaml](templates/product.example.yaml) 改成你的产品（地点、邮箱务必与法律页一致）
-2. 复制 `templates/library.schema.csv` 到本地（如 `library.filled.csv`），路径告诉 Agent
-3. 把策略档写成「标准」（或你选的档）+ 日限额 2–4
-4. 把 [`AGENTS.zh.md`](AGENTS.zh.md) 或 [templates/agent-prompt.md](templates/agent-prompt.md) 中文段贴进 Agent 系统 / 项目说明
-5. （可选）建好 `/links` 空页，方便以后自愿徽章或升档互链
-6. 配置 Agent 收件箱用于注册验证；域名 `support@` 留给你点
+1. 读本文 [注意事项](#注意事项) 与 [免责声明](#免责声明)（完整版：[docs/disclaimer.zh.md](docs/disclaimer.zh.md)）
+2. 复制 [templates/product.example.yaml](templates/product.example.yaml) 改成你的产品（**地点、邮箱须与条款 / 隐私一致**）
+3. 复制 [templates/library.schema.csv](templates/library.schema.csv) 到本地（如 `library.filled.csv`），**不要把实填库推进公开 git**
+4. 按需建站点 `/links` 页（模板：[templates/links-page.example.md](templates/links-page.example.md)；说明：[docs/reciprocity.zh.md](docs/reciprocity.zh.md)）
+5. 把 [`AGENTS.zh.md`](AGENTS.zh.md)（或 [templates/agent-prompt.md](templates/agent-prompt.md) 中文段）贴进 Agent 的系统 / 项目说明；写明策略档（建议标准）与日限额 2–4
+6. 给 Agent 一个可收验证信的邮箱；域名 `support@` 留给你点
 
-Grok Bot 形态案例（虚构产品 **Northstar Notes**）：[docs/grok-bot.zh.md](docs/grok-bot.zh.md)。通用配置：[docs/agent-setup.zh.md](docs/agent-setup.zh.md)。
+**必须人做的事（Agent 应停下来问你）：**
 
-### 哪些事必须人做（Agent 应停下来问你）
+| 事项 | 说明 |
+|------|------|
+| DNS TXT / 页面 meta 所有权 | 动你的域名或生产站 |
+| 域名邮箱里的验证链接 | Agent 往往读不到 |
+| 付费插队 / Featured | 标准档默认禁止 |
+| 强制互链、不挂徽章就不能提交、点赞换积分 | 策略例外 |
+| 拒信后改地点 / 换邮箱再交 | 可能涉及法律页 |
+| 验证码 / 2FA / 未授权批量 GitHub PR | 账号与合规 |
 
-| 事项 | 为什么 |
-|------|--------|
-| 加 DNS TXT / 页面 meta 所有权标签 | 要动你的域名或生产站 |
-| 点开发到**域名邮箱**的验证 | Agent 往往读不到该邮箱 |
-| 付费插队 / Featured | 花钱，标准档默认禁止 |
-| 接受**强制**互链或「不挂徽章就不能提交」 | 策略例外 |
-| 点赞 / 评论换积分 | 默认跳过 |
-| 拒信后改地点 / 换邮箱再交 | 可能涉及法律页与品牌 |
-| 验证码 / 2FA / 未授权的批量 GitHub PR | 合规与账号安全 |
+配置参考：[docs/agent-setup.zh.md](docs/agent-setup.zh.md) · Grok Bot 案例（虚构产品 Northstar Notes）：[docs/grok-bot.zh.md](docs/grok-bot.zh.md) · 总指南：[docs/guide.zh.md](docs/guide.zh.md)
 
-你只需要：回复「加好了去验证」「跳过」「升档并写进 /links」这类短指令。
+还想用本地 Chrome 脚本 / 旧适配器？切分支 [`old`](https://github.com/s87343472/backlink-pilot/tree/old)，见 [docs/migrating-from-v2.zh.md](docs/migrating-from-v2.zh.md)。
 
-### 人类侧文档地图
+### 给 Agent
+
+**完整可执行手册以 [`AGENTS.zh.md`](AGENTS.zh.md) 为准**（英文：[`AGENTS.md`](AGENTS.md)）。摘要如下：
+
+| 项 | 默认 |
+|----|------|
+| 策略档 | **标准** |
+| 日真正提交 | **2–4**（筛站不计） |
+| 允许 | free、free-queue；自愿徽章换 dofollow；人加好后的 meta/DNS verify |
+| 跳过 | 付费；强制互链；点赞换积分；死站；fit 不符 |
+| 角色 | 研究打标 → 提交（优先 HTTP/API）→ 邮件分流 → 写本地 CSV |
+| 必问人 | 付费、强制互链/强制徽章、点赞换积分、改法律地点、域名邮箱、DNS/meta、拒信重交、未授权批量 PR |
+| 汇报 | 提交 / 等待 / 跳过数量与原因；非请求时不刷屏贴第三方 URL |
+
+产品字段：[docs/product-template.zh.md](docs/product-template.zh.md) · 库字段：[docs/library.zh.md](docs/library.zh.md) · 邮件：[docs/email.zh.md](docs/email.zh.md) · 漏斗：[docs/funnel.zh.md](docs/funnel.zh.md)
+
+### 文档地图
 
 | 文档 | 内容 |
 |------|------|
-| [guide.zh.md](docs/guide.zh.md) | 完整 playbook |
-| [disclaimer.zh.md](docs/disclaimer.zh.md) | 风险与建议 |
-| [strategy.zh.md](docs/strategy.zh.md) | 档位与节奏 |
-| [reciprocity.zh.md](docs/reciprocity.zh.md) | 交换链 · 徽章 · `/links` |
-| [library.zh.md](docs/library.zh.md) | 外链库字段与复用 |
-| [email.zh.md](docs/email.zh.md) | 邮件类型怎么处理 |
-| [funnel.zh.md](docs/funnel.zh.md) | 找站 → 提交 → 记账 |
-| [github-lists.zh.md](docs/github-lists.zh.md) | awesome 等 PR 注意 |
-| [troubleshooting.zh.md](docs/troubleshooting.zh.md) | 常见坑（脱敏） |
-| [migrating-from-v2.zh.md](docs/migrating-from-v2.zh.md) | 还要用 CLI 时看 `old` |
-
-### 仓库有什么 / 没有什么
-
-| 有 | 没有 |
-|----|------|
-| 方法文档、空模板、`AGENTS*.md` | 可运行批量 CLI（见 [`old`](https://github.com/s87343472/backlink-pilot/tree/old)） |
-| `targets.yaml`（未再维护） | 真实提交日志、密码、cookie、实填外链库 |
-| 虚构示例 Northstar Notes | 我们实交过的目录站名或 live URL |
+| [AGENTS.zh.md](AGENTS.zh.md) | Agent 操作手册 |
+| [docs/guide.zh.md](docs/guide.zh.md) | 完整 playbook |
+| [docs/strategy.zh.md](docs/strategy.zh.md) | 策略档与节奏 |
+| [docs/reciprocity.zh.md](docs/reciprocity.zh.md) | 交换链 · 徽章 · `/links` |
+| [docs/library.zh.md](docs/library.zh.md) | 外链库账本 |
+| [docs/disclaimer.zh.md](docs/disclaimer.zh.md) | 风险免责全文 |
+| [docs/troubleshooting.zh.md](docs/troubleshooting.zh.md) | 常见坑（脱敏） |
 
 ---
 
-## 给 Agent（For agents）
+## 注意事项
 
-> **完整可执行手册以 [`AGENTS.zh.md`](AGENTS.zh.md) 为准**（多数 Agent 工具会自动读 `AGENTS.md`；中文项目优先读 `AGENTS.zh.md`）。下面是 README 内摘要，便于人类扫一眼你的约束。
-
-### 你的任务
-
-按用户产品卡与**日限额**，寻找并提交 **free / free-queue** 目录或列表；维护本地外链库；处理可自动完成的验证邮件；例外一律问人。
-
-### 硬默认（除非用户改写）
-
-- 策略档：**标准**
-- 真正提交：**2–4 / 天**（筛站不计入「提交」）
-- **允许：** 免费、免费排队；自愿徽章换 dofollow；人加好后的 meta/DNS 验证点击
-- **跳过：** 付费；强制互链；点赞换积分；死站；fit 不符
-- 不承诺排名；不把密钥 / cookie / 实填库推进 git
-- 公开回复**不要**列举用户未要求的大量第三方提交 URL；用数量 + 状态汇报
-
-### 角色
-
-1. 研究：候选站打标 `free` / `free-queue` / `paid` / `badge` / `reciprocal` / `dead` / `fit`
-2. 提交：优先 HTTP/API；复杂再用浏览器；验证码停
-3. 邮件：验证链接可自动；广告与付费推销忽略；所有权 token 交人
-4. 记账：更新本地 library CSV
-
-### 必须问人
-
-付费、强制互链、强制才能提交的徽章、点赞换积分、改法律地点、域名邮箱验证、DNS/meta 未加好、拒信后重交、未授权批量 GitHub PR。
-
-### 产品卡与库
-
-- 产品字段见 [product-template](docs/product-template.zh.md)；示例 [product.example.yaml](templates/product.example.yaml)（虚构）
-- 库字段见 [library.schema.csv](templates/library.schema.csv)
-- 提示词可粘贴：[templates/agent-prompt.md](templates/agent-prompt.md)
-
-漏斗：`harvest → 去重 → 探测 → 入队 → 提交 → 邮件 → 账本`（[funnel](docs/funnel.zh.md)）。
+1. **控速**：推荐每天真正提交约 2–4 个；不要把「一天注册 / 提交几十上百」当推荐玩法。
+2. **策略档**：公开文档默认按 **标准** 写；强制互链标准档默认跳过；自愿徽章与所有权验证可以。详见 [docs/strategy.zh.md](docs/strategy.zh.md)。
+3. **`/links`**：交换链与徽章放独立页，勿塞进首页主内容；强制互链仅在你升档后使用。
+4. **外链库**：实填 CSV 本地保留；本仓库只提供空表头。`targets.yaml` 是历史灵感池，**不保证仍可提交**。
+5. **诚实与一致**：产品描述真实；分类匹配；地点 / 主体 / 邮箱与法律页一致，否则易被拒。
+6. **秘密**：密码、cookie、验证 token、实填库不要提交到 git（见 `.gitignore`）。
+7. **GitHub 列表**：先读目标仓库 CONTRIBUTING；无账号主人授权不做批量代开 PR。
+8. **博客评论批量**：仅留在分支 `old`，v3 不主推。
 
 ---
 
-## License
+## 版权声明
 
-MIT · 作者 sagasu。v3 为 Agent playbook；自动化代码见 [`old`](https://github.com/s87343472/backlink-pilot/tree/old)。
+本项目采用 **MIT License**（见 [LICENSE](LICENSE)）。
+
+Copyright (c) 2026 **SagaSu**（Jingshen Su / @sujingshen）。
+
+你可以自由使用、复制、修改、合并、发布、分发本软件，惟须保留版权与许可声明。软件按「原样」提供，详见 LICENSE 全文。
+
+---
+
+## 免责声明
+
+- 搜索引擎（含 Google）长期反对**用于操纵排名的链接方案**。短时间、大规模、低相关、模式化外链有被视为垃圾链接或触发处理的风险。
+- 外链有质量与来源评价；目录站链接价值参差。**数量 ≠ 排名。** 本项目**不承诺**任何流量或排名结果。
+- 本仓库是作业方法说明，**不是**黑帽教程，也不提供「如何规避处罚」的指导。
+- 使用本 playbook 产生的站点行为与后果由**使用者自负**；作者与维护者不承担损失。
+
+请阅读完整说明：[docs/disclaimer.zh.md](docs/disclaimer.zh.md)。官方材料可参考 [Google Search documentation](https://developers.google.com/search/docs)（以官方原文为准）。
+
+---
+
+## 关于作者 / 关注我
+
+**SagaSu**（@sujingshen）— 独立开发与产品实验。
+
+- Twitter / X： [https://x.com/sujingshen](https://x.com/sujingshen)
+- 个人博客： [https://www.sagasu.art/](https://www.sagasu.art/)
+
+欢迎关注、交流产品与外链作业实践。若本仓库对你有用，也欢迎 Star。
