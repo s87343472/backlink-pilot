@@ -51,7 +51,7 @@ See [github-lists.md](github-lists.md). Read CONTRIBUTING; batch PR permission n
 
 - Generic: [agent-setup.md](agent-setup.md)  
 - Grok Bot case (fictional product): [grok-bot.md](grok-bot.md)  
-- Prompt draft: [templates/agent-prompt.md](../templates/agent-prompt.md)  
+- Prompt draft: [AGENTS.md](../AGENTS.md) · [templates/agent-prompt.md](../templates/agent-prompt.md)  
 
 ## 11. Safety (public)
 

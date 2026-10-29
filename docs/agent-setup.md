@@ -11,7 +11,7 @@ Works for any AI Agent that can read docs, run routines, read mail, or drive a b
 5. **Email:** Agent inbox for signups; clear rules for domain mail  
 6. **Handoff phrases:** when to ask a human (paid, required reciprocal, DNS, rejection resubmit)  
 
-Prompt skeleton: [templates/agent-prompt.md](../templates/agent-prompt.md).
+Prompt skeleton: [AGENTS.md](../AGENTS.md) · [templates/agent-prompt.md](../templates/agent-prompt.md).
 
 ## Suggested routines
 

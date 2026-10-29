@@ -51,7 +51,7 @@ v2 CLI 与浏览器自动化整包在分支 [`old`](https://github.com/s87343472
 
 - 通用：[agent-setup.zh.md](agent-setup.zh.md)  
 - Grok Bot 案例（虚构产品）：[grok-bot.zh.md](grok-bot.zh.md)  
-- 提示词草稿：[templates/agent-prompt.md](../templates/agent-prompt.md)  
+- 提示词草稿：[AGENTS.zh.md](../AGENTS.zh.md) · [templates/agent-prompt.md](../templates/agent-prompt.md)  
 
 ## 11. 安全与合规（公开版）
 

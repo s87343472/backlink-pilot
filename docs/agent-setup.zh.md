@@ -11,7 +11,7 @@
 5. **邮箱：** Agent 收件箱用于注册；域名邮箱策略写清  
 6. **交接句式：** 何时必须问人（付费、强制互链、DNS、拒信重交）  
 
-提示词骨架：[templates/agent-prompt.md](../templates/agent-prompt.md)。
+提示词骨架：[AGENTS.zh.md](../AGENTS.zh.md) · [templates/agent-prompt.md](../templates/agent-prompt.md)。
 
 ## 建议例程
 
