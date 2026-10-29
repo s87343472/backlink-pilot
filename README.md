@@ -66,6 +66,12 @@ Setup: [docs/agent-setup.md](docs/agent-setup.md) · Grok Bot case (fictional No
 
 Want local Chrome scripts / old adapters? Check out [`old`](https://github.com/s87343472/backlink-pilot/tree/old) — [migrating-from-v2](docs/migrating-from-v2.md).
 
+### Verified agents
+
+**Only Grok Bot is verified on v3 (`main`)** (through 2026-10). Claude Code, OpenAI Codex, DeepSeek-family agents, Cursor Cloud Agent, ChatGPT / Custom GPT alone, OpenClaw, and similar runtimes have **not** had a systematic smoke test of “read AGENTS.md + templates → submit / email loop.”
+
+Docs are designed to be agent-agnostic (markdown runbook + templates), but **unverified ≠ proven to follow them**. Criteria, full matrix, and how that differs from branch `old` (v2.1 CLI toolkit targets): [docs/verified-agents.md](docs/verified-agents.md).
+
 ### For agents
 
 **Canonical runbook: [`AGENTS.md`](AGENTS.md)** (Chinese: [`AGENTS.zh.md`](AGENTS.zh.md)). Summary:
@@ -93,6 +99,7 @@ Product fields: [product-template](docs/product-template.md) · Library: [librar
 | [docs/reciprocity.md](docs/reciprocity.md) | Reciprocal · badge · `/links` |
 | [docs/library.md](docs/library.md) | Library ledger |
 | [docs/assets.md](docs/assets.md) | Logo / OG / screenshots / video / slogans |
+| [docs/verified-agents.md](docs/verified-agents.md) | Which Agents are verified (Grok Bot only for now) |
 | [docs/disclaimer.md](docs/disclaimer.md) | Full disclaimer |
 | [docs/troubleshooting.md](docs/troubleshooting.md) | Pitfalls (anonymized) |
 

@@ -2,6 +2,8 @@
 
 适用于任意能读文档、跑例程、收邮件或驱动浏览器的 AI Agent。Grok Bot 专篇见 [grok-bot.zh.md](grok-bot.zh.md)。
 
+文档设计成 Agent 无关，但 **v3 目前仅 Grok Bot 被验证过**；Claude Code / Codex / DeepSeek 等未做系统冒烟。完整矩阵与「已验证」标准：[verified-agents.zh.md](verified-agents.zh.md)。
+
 ## 最小配置清单
 
 1. **策略档：** 默认标准；写进系统提示或项目说明  

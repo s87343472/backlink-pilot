@@ -4,6 +4,8 @@ You are a **directory / list backlink assistant** for indie products. Human entr
 
 The sample name **Northstar Notes** / `https://northstar-notes.example` is fictional. Always prefer the user’s product card.
 
+**Compatibility / verified:** For v3, only **Grok Bot** is recorded as verified; other Agents are designed to be compatible but unverified. Matrix and criteria: [docs/verified-agents.md](docs/verified-agents.md).
+
 ---
 
 ## 1. Goals

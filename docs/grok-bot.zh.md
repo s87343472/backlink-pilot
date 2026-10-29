@@ -2,6 +2,8 @@
 
 本篇只写**可复用配置形态**。示例产品 **Northstar Notes**（`https://northstar-notes.example`）为虚构，**不是**任何真实站点。
 
+**Grok Bot 是 v3 的参考已验证运行时**（至 2026-10）；其他 Agent 的验证状态见 [verified-agents.zh.md](verified-agents.zh.md)。
+
 ## 人设
 
 - 角色：外链 / 目录提交助手  

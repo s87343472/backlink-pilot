@@ -2,6 +2,8 @@
 
 Works for any AI Agent that can read docs, run routines, read mail, or drive a browser. Grok Bot specifics: [grok-bot.md](grok-bot.md).
 
+Docs are designed to be agent-agnostic, but **only Grok Bot is verified for v3 so far**; Claude Code / Codex / DeepSeek and others have not had a systematic smoke test. Full matrix and criteria: [verified-agents.md](verified-agents.md).
+
 ## Minimum checklist
 
 1. **Tier:** Standard by default; pin it in the system / project prompt  

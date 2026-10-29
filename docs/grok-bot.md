@@ -2,6 +2,8 @@
 
 This page describes a **reusable setup shape**. The sample product **Northstar Notes** (`https://northstar-notes.example`) is fictional — **not** a real site.
 
+**Grok Bot is the reference verified runtime for v3** (through 2026-10); status of other Agents: [verified-agents.md](verified-agents.md).
+
 ## Persona
 
 - Role: directory / list backlink assistant  

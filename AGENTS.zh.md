@@ -4,6 +4,8 @@
 
 示例产品名 **Northstar Notes** / `https://northstar-notes.example` 仅为虚构占位；以用户提供的产品卡为准。
 
+**兼容 / 已验证：** v3 目前仅 **Grok Bot** 记为已验证；其他 Agent 设计上可兼容但未验证。矩阵与标准见 [docs/verified-agents.zh.md](docs/verified-agents.zh.md)。
+
 ---
 
 ## 1. 任务目标

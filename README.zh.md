@@ -66,6 +66,12 @@
 
 还想用本地 Chrome 脚本 / 旧适配器？切分支 [`old`](https://github.com/s87343472/backlink-pilot/tree/old)，见 [docs/migrating-from-v2.zh.md](docs/migrating-from-v2.zh.md)。
 
+### 已验证的 Agent
+
+**目前仅 Grok Bot 在 v3（`main`）上被验证过**（验证窗口至 2026-10）。Claude Code、OpenAI Codex、DeepSeek 类 Agent、Cursor Cloud Agent、单独的 ChatGPT / Custom GPT、OpenClaw 等 **尚未** 做过「读 AGENTS.md + 模板 → 提交 / 邮件闭环」的系统冒烟。
+
+文档设计成 Agent 无关（Markdown 手册 + 模板），但**未验证 ≠ 已验证能跟着做**。完整标准、矩阵表、与分支 `old`（v2.1 CLI 工具箱目标）的区别，见 [docs/verified-agents.zh.md](docs/verified-agents.zh.md)。
+
 ### 给 Agent
 
 **完整可执行手册以 [`AGENTS.zh.md`](AGENTS.zh.md) 为准**（英文：[`AGENTS.md`](AGENTS.md)）。摘要如下：
@@ -93,6 +99,7 @@
 | [docs/reciprocity.zh.md](docs/reciprocity.zh.md) | 交换链 · 徽章 · `/links` |
 | [docs/library.zh.md](docs/library.zh.md) | 外链库账本 |
 | [docs/assets.zh.md](docs/assets.zh.md) | Logo / OG / 截图 / 视频 / 口号 |
+| [docs/verified-agents.zh.md](docs/verified-agents.zh.md) | 哪些 Agent 已验证（目前仅 Grok Bot） |
 | [docs/disclaimer.zh.md](docs/disclaimer.zh.md) | 风险免责全文 |
 | [docs/troubleshooting.zh.md](docs/troubleshooting.zh.md) | 常见坑（脱敏） |
 
