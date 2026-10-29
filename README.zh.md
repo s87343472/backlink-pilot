@@ -1,199 +1,59 @@
-# Backlink Pilot v2.1
+# Backlink Pilot v3
 
-**[English](README.md)**
+**用 AI Agent 按可控节奏做目录 / 列表外链：默认免费与免费排队，把交换链、徽章、所有权验证当成可配置成本，并用账本沉淀成可复用的外链库。**
 
-<p align="center">
-  <img src="docs/overview.zh.svg" alt="Backlink Pilot v2.1 概览" width="100%"/>
-</p>
+> 需要旧版 CLI（OpenClaw / Claude Code / bb-browser / Playwright）？请看分支 [`old`](https://github.com/s87343472/backlink-pilot/tree/old)（v2.1）。  
+> **必读：** [风险免责与建议](docs/disclaimer.zh.md) — 搜索引擎反对操纵排名的链接方案；本仓库**不承诺排名**。
 
-**一条命令提交外链的自动化工具。** 配置一次产品信息，自动提交到目录站、awesome-list、搜索引擎。
-
-> 由 AI Agent ([OpenClaw](https://openclaw.ai)) 在真实外链建设中构建，30+ 站点实战验证。
-
-[`targets.yaml`](targets.yaml) 收录 **259 个目标站点**，其中 226 个可用 bb-browser 自动提交。
+[English](README.md) · [完整指南](docs/guide.zh.md) · [文档首页](docs/index.md)
 
 ---
 
-## 最快上手 — Claude Code（推荐）
+## 为什么是 Agent，而不是「一条命令打几百站」
 
-> 有 Claude Code？**不需要看下面任何文档。** 三步搞定：
+目录表单差异大，常要登录、验证码、排期和邮件验证。真正难的是 **策略判断 + 邮件闭环 + 控速**，不是单次填表。脚本仍适合无账号即时表单和简单 API；主路径应是带日限额的 Agent 作业。
 
-```bash
-git clone https://github.com/s87343472/backlink-pilot.git
-cd backlink-pilot && npm install
-claude    # 打开 Claude Code，直接说「帮我提交外链」
-```
+## 5 分钟上手
 
-Claude 自动读取 `CLAUDE.md`，引导你配置产品信息、安装 bb-browser、开始提交。
+1. 读 [免责声明](docs/disclaimer.zh.md) 与 [策略档](docs/strategy.zh.md)（默认 **标准** 档）
+2. 复制 [产品卡模板](templates/product.example.yaml) 与 [外链库空表](templates/library.schema.csv)
+3. 按需建站点 `/links` 页（见 [交换链与徽章](docs/reciprocity.zh.md)）
+4. 配置 Agent：[通用配置](docs/agent-setup.zh.md) 或 [Grok Bot 案例](docs/grok-bot.zh.md)（虚构产品演示）
+5. **每天真正提交约 2–4 个站**；大批量只做筛站，不做提交
 
-详细教程：[docs/tutorial.md](docs/tutorial.md) | 完整指南：[docs/guide.md](docs/guide.md)
+## 文档地图
 
----
-
-## 手动快速开始
-
-```bash
-# 1. 克隆安装
-git clone https://github.com/s87343472/backlink-pilot.git
-cd backlink-pilot && npm install
-
-# 2. 安装 bb-browser（推荐）
-npm install -g bb-browser
-
-# 3. 配置产品信息
-cp config.example.yaml config.yaml
-# 编辑 config.yaml，填入产品名、网址、描述
-
-# 4. 开始提交
-node src/cli.js submit futuretools --engine bb
-node src/cli.js submit https://any-site.com --engine bb
-```
-
----
-
-## 引擎对比
-
-| 引擎 | 安装 | 优点 | 缺点 |
-|------|------|------|------|
-| **bb-browser**（推荐） | `npm i -g bb-browser` | 真实 Chrome，100% 隐身，支持 OAuth | 需要 Chrome |
-| **playwright**（默认） | `npm install` | 零配置 | 被反爬检测，Cloudflare 拦截 |
-
----
-
-## 命令速查
-
-```bash
-node src/cli.js submit <站点名或URL>     # 提交到目录站
-node src/cli.js scout <URL> --deep       # 侦察站点表单
-node src/cli.js awesome <仓库名>          # 生成 awesome-list Issue
-node src/cli.js indexnow <URL>           # 通知搜索引擎
-node src/cli.js status                   # 查看提交记录
-node src/cli.js bb-update                # 更新 bb-browser 适配器
-node src/batch-submit.js --limit N       # 批量博客评论
-```
-
----
-
-## 外链策略
-
-**为什么要做外链？** Google 排名逻辑 = 别的网站链接到你 = 投票。票越多、来源越权威，排名越高。
-
-### 最佳渠道（按 ROI 排序）
-
-1. **GitHub awesome-lists** — 最高 ROI，永久收录，$0，每个 5 分钟
-2. **免费目录站** — `targets.yaml` 收录 259 个，大部分可自动提交
-3. **博客评论** — Website 字段留链接，批量自动化
-
-### 提交节奏
-
-- 不同站点间隔 1-3 分钟，每天 5-10 个
-- **同一产品不要重复提交到同一站点**
-
-### 避坑清单
-
-| 站点 | 原因 |
+| 文档 | 内容 |
 |------|------|
-| IndieHub | 看起来免费，发布要 $4.9 |
-| OpenHunts | 免费排队 51 周 |
-| toolify.ai | $99 |
-| Product Hunt | 反爬机制，只能手动 |
+| [guide.zh.md](docs/guide.zh.md) | 完整 playbook |
+| [disclaimer.zh.md](docs/disclaimer.zh.md) | Google / SEO 风险与建议 |
+| [strategy.zh.md](docs/strategy.zh.md) | 策略档、节奏、跳过规则 |
+| [reciprocity.zh.md](docs/reciprocity.zh.md) | 交换链 / 徽章 / 所有权 · `/links` |
+| [library.zh.md](docs/library.zh.md) | 外链库账本与复用提交流程 |
+| [agent-setup.zh.md](docs/agent-setup.zh.md) | 通用 Agent 配置 |
+| [grok-bot.zh.md](docs/grok-bot.zh.md) | Grok Bot 案例（虚构产品） |
+| [funnel.zh.md](docs/funnel.zh.md) | 找站 → 提交 → 记账 |
+| [email.zh.md](docs/email.zh.md) | 验证邮件与拒信 |
+| [github-lists.zh.md](docs/github-lists.zh.md) | awesome / 资源列表 PR |
+| [troubleshooting.zh.md](docs/troubleshooting.zh.md) | 常见坑（脱敏） |
+| [migrating-from-v2.zh.md](docs/migrating-from-v2.zh.md) | 从 v2 CLI 迁移 |
 
----
+## 默认策略（标准档）摘要
 
-## Agent 集成
+- **允许：** 免费、免费排队；自愿挂徽章换 dofollow；域名 meta / DNS 所有权验证  
+- **默认跳过：** 付费插队；**强制**互链 / 交换才能收录；点赞换积分（除非你单独授权例外）  
+- **节奏：** 每天约 2–4 次真正提交；多产品轮换  
 
-### Claude Code
+细节见 [strategy.zh.md](docs/strategy.zh.md)。
 
-克隆仓库 → 运行 `claude` → 直接对话。`CLAUDE.md` 是 AI 的操作手册，Claude 自动读取。
+## 仓库里有什么 / 没有什么
 
-### OpenClaw
+| 有 | 没有 |
+|----|------|
+| 方法文档与空模板 | 可运行的批量提交 CLI（在 `old`） |
+| `targets.yaml` 历史清单（**未再维护**） | 真实提交日志、密码、cookie |
+| 空外链库 CSV 表头 | 填好的目录站名单或实交 live URL |
 
-```bash
-ln -s ~/path/to/backlink-pilot ~/.openclaw/skills/backlink-pilot
-```
+## License
 
-然后说：「帮我提交外链」
-
----
-
-## 项目结构
-
-```
-backlink-pilot/
-├── README.md                  ← 英文文档
-├── README.zh.md               ← 你在这里
-├── CLAUDE.md                  ← Claude Code 指令
-├── LICENSE
-├── package.json
-├── config.example.yaml        ← 配置模板
-├── targets.yaml               ← 259 个目标站点
-│
-├── docs/                      ← 文档
-│   ├── index.md               ← 文档首页（VitePress）
-│   ├── guide.md               ← 完整使用指南
-│   ├── tutorial.md            ← 上手教程
-│   ├── troubleshooting.md     ← 20+ 排错记录
-│   ├── adapters.md            ← 适配器参考
-│   ├── contributing.md        ← 贡献指南
-│   └── skill.md               ← OpenClaw 技能定义
-│
-├── src/                       ← 源码
-│   ├── cli.js                 ← 命令行入口
-│   ├── submit.js              ← 提交调度器
-│   ├── bb.js                  ← bb-browser 封装
-│   ├── browser.js             ← 双引擎管理
-│   ├── config.js              ← 配置加载 + UTM
-│   ├── tracker.js             ← 提交去重追踪
-│   ├── captcha.js             ← 验证码解决器
-│   ├── indexnow.js            ← 搜索引擎通知
-│   ├── batch-submit.js        ← 批量博客评论
-│   ├── bb-update.js           ← bb-browser 适配器更新
-│   ├── sites/                 ← 站点适配器
-│   │   ├── generic.js         ← 通用适配器
-│   │   ├── saashub.js
-│   │   ├── uneed.js
-│   │   ├── baitools.js
-│   │   └── startup88.js
-│   ├── scout/discover.js      ← 表单字段发现
-│   └── awesome/templates.js   ← Awesome-list Issue 生成器
-│
-├── tests/                     ← 测试
-└── bak/                       ← 废弃代码（不上传）
-```
-
----
-
-## 开发者
-
-### 写新适配器
-
-```bash
-# 方式 1：通用提交（不用写代码）
-node src/cli.js submit https://new-site.com/submit --engine bb
-
-# 方式 2：自定义适配器
-node src/cli.js scout https://new-site.com --deep
-# 然后创建 src/sites/newsite.js — 参考 docs/adapters.md
-```
-
-### 运行测试
-
-```bash
-npm test
-```
-
-> 完整排错记录：[docs/troubleshooting.md](docs/troubleshooting.md)
-
----
-
-## 贡献
-
-参见 [docs/contributing.md](docs/contributing.md)。欢迎 PR：新适配器、验证码改进、Bug 修复。
-
-## 许可证
-
-MIT
-
-## 致谢
-
-使用 [OpenClaw](https://openclaw.ai) 构建。浏览器自动化：[bb-browser](https://github.com/niciral/bb-browser)、[rebrowser-playwright](https://github.com/nickthecoder/rebrowser-playwright)。
+MIT · 作者 sagasu。v3 按真实外链作业经验重写文档；自动化代码见 [`old`](https://github.com/s87343472/backlink-pilot/tree/old)。

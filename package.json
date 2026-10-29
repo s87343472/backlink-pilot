@@ -1,19 +1,10 @@
 {
   "name": "backlink-pilot",
-  "version": "2.1.0",
-  "type": "module",
-  "description": "Automated backlink submission toolkit for indie hackers",
-  "main": "src/cli.js",
-  "bin": {
-    "backlink-pilot": "src/cli.js"
-  },
+  "version": "3.0.0",
+  "private": true,
+  "description": "Agent playbook for paced, free-first directory and list backlinks — methods, strategy tiers, email loop, and a reusable site library",
   "scripts": {
-    "start": "node src/cli.js",
-    "test": "node --test tests/*.test.js",
-    "batch": "node src/batch-submit.js",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:list": "ls -1 docs/"
   },
   "keywords": [
     "backlinks",
@@ -21,24 +12,14 @@
     "directory-submission",
     "awesome-lists",
     "indie-hacker",
-    "automation",
-    "playwright",
-    "rebrowser"
+    "ai-agent",
+    "playbook",
+    "grok-bot"
   ],
   "author": "sagasu",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/s87343472/backlink-pilot.git"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "dependencies": {
-    "chalk": "^5.3.0",
-    "commander": "^12.1.0",
-    "playwright": "^1.58.2",
-    "rebrowser-playwright": "^1.52.0",
-    "yaml": "^2.4.0"
   }
 }

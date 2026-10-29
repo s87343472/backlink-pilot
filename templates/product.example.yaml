@@ -1,0 +1,28 @@
+# Fictional example — not a real product
+name: Northstar Notes
+url: https://northstar-notes.example
+tagline: Capture meeting notes and action items in one place
+short: >
+  Northstar Notes is a lightweight notes app for founders who want
+  clear follow-ups after every call.
+long: >
+  Northstar Notes helps small teams turn meeting transcripts into
+  structured notes and assigned action items. Works in the browser.
+  No install required for the demo tier.
+email: agent@mail.example   # prefer Agent inbox for signups
+# support_email: support@northstar-notes.example  # human-gated verifies
+location: London, UK          # MUST match Terms / Privacy
+founder: Alex Example
+pricing: freemium
+categories:
+  - productivity
+  - notes
+  - saas
+logo: ./assets/logo.png
+screenshots: []
+twitter: https://x.com/example
+keywords:
+  - meeting notes
+  - action items
+strategy_tier: standard       # conservative | standard | aggressive
+daily_submit_cap: 4

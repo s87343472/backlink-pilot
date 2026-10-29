@@ -1,18 +1,31 @@
-node_modules/
-dist/
-submissions.yaml
+# Local secrets & filled ledgers (never commit)
 config.yaml
 config.yml
 backlink-pilot.yaml
 .env
+.signup-pass
+*.cookie
+cookies/
+library.filled.csv
+library.local.csv
+submissions.yaml
+submissions.json
+submit-log/
+RESULTS/
+progress/
+
+# Runtime / OS
+node_modules/
+dist/
 screenshots/
 *.log
 .DS_Store
 logs/
 tmp_*
 test_*
-resources/sites.json
 bak/
 .claude-local.md
+
+# Old VitePress build artifacts (if any)
 docs/.vitepress/dist/
 docs/.vitepress/cache/

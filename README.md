@@ -1,199 +1,59 @@
-# Backlink Pilot v2.1
+# Backlink Pilot v3
 
-**[中文文档](README.zh.md)**
+**An AI Agent playbook for paced directory and list backlinks: free / free-queue by default, treat reciprocal links, badges, and ownership checks as configurable costs, and grow a reusable site library.**
 
-<p align="center">
-  <img src="docs/overview.svg" alt="Backlink Pilot v2.1 Overview" width="100%"/>
-</p>
+> Need the old CLI (OpenClaw / Claude Code / bb-browser / Playwright)? Use branch [`old`](https://github.com/s87343472/backlink-pilot/tree/old) (v2.1).  
+> **Required reading:** [Disclaimer](docs/disclaimer.md) — search engines discourage link schemes that manipulate rankings; this repo **promises no rankings**.
 
-**One config, one command. Automated backlink submission for indie products.**
-
-> Built by an AI Agent ([OpenClaw](https://openclaw.ai)) during real-world link building — battle-tested on 30+ sites.
-
-**259 target sites** in [`targets.yaml`](targets.yaml) — 226 auto-submittable with bb-browser.
+[中文](README.zh.md) · [Full guide](docs/guide.md) · [Docs home](docs/index.md)
 
 ---
 
-## Quickest Start — Claude Code (Recommended)
+## Why Agent, not “submit hundreds in one command”
 
-> Have Claude Code? **You don't need to read any docs.** Three steps:
+Directory forms vary; many need login, captcha, scheduling, and email verification. The hard part is **policy judgment + email loop + pacing**, not filling one form. Scripts still help for no-account instant forms and simple APIs; the main path should be an Agent with a daily cap.
 
-```bash
-git clone https://github.com/s87343472/backlink-pilot.git
-cd backlink-pilot && npm install
-claude    # Open Claude Code, just say "submit my product to free directories"
-```
+## Five-minute start
 
-Claude automatically reads `CLAUDE.md`, guides you through config, installs bb-browser, and starts submitting.
+1. Read the [disclaimer](docs/disclaimer.md) and [strategy tiers](docs/strategy.md) (default: **Standard**)
+2. Copy the [product card](templates/product.example.yaml) and [empty library CSV](templates/library.schema.csv)
+3. Optionally add a `/links` page ([reciprocity](docs/reciprocity.md))
+4. Configure an Agent: [generic setup](docs/agent-setup.md) or [Grok Bot case study](docs/grok-bot.md) (fictional product)
+5. **Actually submit about 2–4 sites per day**; bulk work is for scouting, not submitting
 
-Detailed tutorial: [docs/tutorial.md](docs/tutorial.md) | Full guide: [docs/guide.md](docs/guide.md)
+## Doc map
 
----
+| Doc | Topic |
+|-----|--------|
+| [guide.md](docs/guide.md) | Full playbook |
+| [disclaimer.md](docs/disclaimer.md) | SEO / Google risk & advice |
+| [strategy.md](docs/strategy.md) | Tiers, pace, skip rules |
+| [reciprocity.md](docs/reciprocity.md) | Reciprocal / badge / ownership · `/links` |
+| [library.md](docs/library.md) | Library ledger & reuse flow |
+| [agent-setup.md](docs/agent-setup.md) | Generic Agent setup |
+| [grok-bot.md](docs/grok-bot.md) | Grok Bot case (fictional product) |
+| [funnel.md](docs/funnel.md) | Scout → submit → ledger |
+| [email.md](docs/email.md) | Verify mail & rejections |
+| [github-lists.md](docs/github-lists.md) | Awesome-list PRs |
+| [troubleshooting.md](docs/troubleshooting.md) | Common pitfalls (anonymized) |
+| [migrating-from-v2.md](docs/migrating-from-v2.md) | From v2 CLI |
 
-## Manual Quick Start
+## Default strategy (Standard) — short
 
-```bash
-# 1. Clone & install
-git clone https://github.com/s87343472/backlink-pilot.git
-cd backlink-pilot && npm install
+- **Allow:** free, free-queue; optional badge for dofollow; domain meta / DNS ownership verify  
+- **Skip by default:** paid boosts; **required** reciprocal / swap for listing; upvote-for-credits (unless you explicitly allow an exception)  
+- **Pace:** ~2–4 real submissions/day; rotate products  
 
-# 2. Install bb-browser (recommended)
-npm install -g bb-browser
+Details: [strategy.md](docs/strategy.md).
 
-# 3. Configure
-cp config.example.yaml config.yaml
-# Edit config.yaml with your product info
+## What is / isn’t in this repo
 
-# 4. Submit
-node src/cli.js submit futuretools --engine bb
-node src/cli.js submit https://any-site.com --engine bb
-```
-
----
-
-## Engine Comparison
-
-| Engine | Setup | Pros | Cons |
-|--------|-------|------|------|
-| **bb-browser** (recommended) | `npm i -g bb-browser` | Real Chrome, invisible, OAuth works | Requires Chrome |
-| **playwright** (default) | `npm install` | No extra setup | Detected by anti-bot, blocked by Cloudflare |
-
----
-
-## Commands
-
-```bash
-node src/cli.js submit <site-or-url>     # Submit to directory
-node src/cli.js scout <url> --deep       # Discover form fields
-node src/cli.js awesome <repo>           # Generate awesome-list Issue
-node src/cli.js indexnow <url>           # Ping search engines
-node src/cli.js status                   # Check submission history
-node src/cli.js bb-update                # Update bb-browser adapters
-node src/batch-submit.js --limit N       # Batch blog comments
-```
-
----
-
-## Strategy
-
-**Why backlinks?** Google ranking = other sites linking to you = votes. More quality votes = higher ranking.
-
-### Best channels by ROI
-
-1. **GitHub awesome-lists** — highest ROI, permanent, $0, 5 min each
-2. **Free directory sites** — 259 targets in `targets.yaml`, most auto-submittable
-3. **Blog comments** — Website field backlinks, batch-automated
-
-### Submission pace
-
-- 1-3 min between sites, 5-10 per day
-- **Never submit the same product to the same site twice**
-
-### Sites to avoid
-
-| Site | Why |
-|------|-----|
-| IndieHub | Hidden $4.9 paywall |
-| OpenHunts | 51-week free queue |
-| toolify.ai | $99 |
-| Product Hunt | Anti-bot, manual only |
-
----
-
-## Agent Integration
-
-### Claude Code
-
-Clone the repo, run `claude`, and talk. `CLAUDE.md` is the instruction manual — Claude reads it automatically.
-
-### OpenClaw
-
-```bash
-ln -s ~/path/to/backlink-pilot ~/.openclaw/skills/backlink-pilot
-```
-
-Then just say: "Submit to free directories"
-
----
-
-## Project Structure
-
-```
-backlink-pilot/
-├── README.md                  ← You are here
-├── README.zh.md               ← Chinese docs
-├── CLAUDE.md                  ← Claude Code agent instructions
-├── LICENSE
-├── package.json
-├── config.example.yaml        ← Config template
-├── targets.yaml               ← 259 target sites
-│
-├── docs/                      ← Documentation
-│   ├── index.md               ← Docs home (VitePress)
-│   ├── guide.md               ← Complete usage guide
-│   ├── tutorial.md            ← Step-by-step tutorial
-│   ├── troubleshooting.md     ← 20+ debugging notes
-│   ├── adapters.md            ← Site adapters reference
-│   ├── contributing.md        ← PR guidelines
-│   └── skill.md               ← OpenClaw skill definition
-│
-├── src/                       ← Source code
-│   ├── cli.js                 ← CLI entry point
-│   ├── submit.js              ← Submission dispatcher
-│   ├── bb.js                  ← bb-browser wrapper
-│   ├── browser.js             ← Dual-engine manager
-│   ├── config.js              ← Config loader + UTM
-│   ├── tracker.js             ← Submission tracking
-│   ├── captcha.js             ← CAPTCHA solvers
-│   ├── indexnow.js            ← Search engine ping
-│   ├── batch-submit.js        ← Batch blog comments
-│   ├── bb-update.js           ← bb-browser adapter updater
-│   ├── sites/                 ← Site adapters
-│   │   ├── generic.js         ← Universal adapter
-│   │   ├── saashub.js
-│   │   ├── uneed.js
-│   │   ├── baitools.js
-│   │   └── startup88.js
-│   ├── scout/discover.js      ← Form field discovery
-│   └── awesome/templates.js   ← Awesome-list Issue generator
-│
-├── tests/                     ← Test suite
-└── bak/                       ← Deprecated code (not tracked)
-```
-
----
-
-## Developer
-
-### Writing a new adapter
-
-```bash
-# Option 1: Generic (no code needed)
-node src/cli.js submit https://new-site.com/submit --engine bb
-
-# Option 2: Custom adapter
-node src/cli.js scout https://new-site.com --deep
-# Then create src/sites/newsite.js — see docs/adapters.md
-```
-
-### Running tests
-
-```bash
-npm test
-```
-
-> Full debugging notes: [docs/troubleshooting.md](docs/troubleshooting.md)
-
----
-
-## Contributing
-
-See [docs/contributing.md](docs/contributing.md). PRs welcome: new adapters, CAPTCHA improvements, bug fixes.
+| Included | Not included |
+|----------|----------------|
+| Method docs & empty templates | Runnable batch CLI (see `old`) |
+| Historical `targets.yaml` (**unmaintained**) | Real submit logs, passwords, cookies |
+| Empty library CSV header | Filled directory lists or live submission URLs |
 
 ## License
 
-MIT
-
-## Credits
-
-Built with [OpenClaw](https://openclaw.ai). Browser automation by [bb-browser](https://github.com/niciral/bb-browser) and [rebrowser-playwright](https://github.com/nickthecoder/rebrowser-playwright).
+MIT · author sagasu. v3 rewrites the docs from real operational practice; automation lives on [`old`](https://github.com/s87343472/backlink-pilot/tree/old).

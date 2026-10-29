@@ -1,7 +1,16 @@
+# =============================================================================
+# DEPRECATED / 未再维护 — FOR REFERENCE ONLY
+# -----------------------------------------------------------------------------
+# This historical site list shipped with Backlink Pilot v2 (see branch `old`).
+# v3 does NOT promise these URLs still accept submissions or remain free.
+# Prefer building your own library ledger (see docs/library.md + templates/).
+# 本清单仅为历史参考，不再承诺可提交性或免费状态；请自建外链库账本。
+# =============================================================================
+#
 # Backlink Pilot — Target Sites
 # Source: https://github.com/naxiaoduo/1000UserGuide
 #
-# Usage:
+# Historical usage (v2 / branch `old` only):
 #   node src/cli.js submit <submit_url> --engine bb
 #
 # Fields:
