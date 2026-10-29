@@ -15,7 +15,7 @@ An AI Agent playbook for paced directory and list backlinks: free / free-queue b
 | **v3 (this branch `main`)** | Strategy tiers, daily caps, email loop, `/links`, library ledger, risk notes; human README + agent runbook [`AGENTS.md`](AGENTS.md) |
 | **v2.1 (branch [`old`](https://github.com/s87343472/backlink-pilot/tree/old))** | Legacy CLI: OpenClaw / Claude Code / bb-browser / Playwright toolkit |
 
-**In the repo:** method docs, empty templates (product card, library CSV, `/links` example), historical `targets.yaml` (**unmaintained**).  
+**In the repo:** method docs, empty templates (product card with media fields, library CSV, `/links` example, [assets](docs/assets.md) checklist), historical `targets.yaml` (**unmaintained**).  
 **Not in the repo:** runnable batch-submit CLI (see `old`), real submit logs, passwords / cookies, filled directory lists.
 
 ---
@@ -44,10 +44,11 @@ It is **not** a ranking promise, a link-buying guide, or a tutorial on evading s
 
 1. Read [Notes](#notes注意事项) and [Disclaimer](#disclaimer免责声明) (full text: [docs/disclaimer.md](docs/disclaimer.md))
 2. Copy [templates/product.example.yaml](templates/product.example.yaml) for your product (**location and email must match Terms / Privacy**)
-3. Copy [templates/library.schema.csv](templates/library.schema.csv) locally (e.g. `library.filled.csv`); **do not commit filled ledgers**
-4. Optionally add a `/links` page ([templates/links-page.example.md](templates/links-page.example.md); docs: [reciprocity](docs/reciprocity.md))
-5. Paste [`AGENTS.md`](AGENTS.md) (or the English block in [templates/agent-prompt.md](templates/agent-prompt.md)) into the Agent’s system / project instructions; set tier (recommend Standard) and daily cap 2–4
-6. Give the Agent an inbox for signup verifies; keep domain `support@` for yourself
+3. **Prep a media pack:** square logo (prefer transparent), OG (~1200×630), desktop/mobile screenshots, optional banner / promo video, plus short/long slogan variants. Checklist: [docs/assets.md](docs/assets.md); put paths on the product card
+4. Copy [templates/library.schema.csv](templates/library.schema.csv) locally (e.g. `library.filled.csv`); **do not commit filled ledgers**
+5. Optionally add a `/links` page ([templates/links-page.example.md](templates/links-page.example.md); docs: [reciprocity](docs/reciprocity.md))
+6. Paste [`AGENTS.md`](AGENTS.md) (or the English block in [templates/agent-prompt.md](templates/agent-prompt.md)) into the Agent’s system / project instructions; set tier (recommend Standard) and daily cap 2–4
+7. Give the Agent an inbox for signup verifies; keep domain `support@` for yourself
 
 **What humans must do (the Agent should stop and ask):**
 
@@ -59,6 +60,7 @@ It is **not** a ranking promise, a link-buying guide, or a tutorial on evading s
 | Required reciprocal, badge-required-to-submit, upvote-for-credits | Policy exceptions |
 | Change location / email after rejection | May touch legal pages |
 | Captcha / 2FA / unauthorized bulk GitHub PRs | Account & compliance |
+| Final logo / OG / screenshots / video | Design & brand; Agent only checks and uploads |
 
 Setup: [docs/agent-setup.md](docs/agent-setup.md) · Grok Bot case (fictional Northstar Notes): [docs/grok-bot.md](docs/grok-bot.md) · Full guide: [docs/guide.md](docs/guide.md)
 
@@ -75,7 +77,8 @@ Want local Chrome scripts / old adapters? Check out [`old`](https://github.com/s
 | Allow | free, free-queue; optional badge for dofollow; meta/DNS verify after human adds tokens |
 | Skip | paid; required reciprocal; upvote-for-credits; dead; fit mismatch |
 | Roles | Research tags → submit (prefer HTTP/API) → email triage → local CSV |
-| Ask human | Paid, required reciprocal/badge, upvote-for-credits, legal location, domain mail, DNS/meta, rejection resubmit, unauthorized bulk PRs |
+| Media | Before submit, verify product-card paths; if required image/video missing → skip or ask ([assets](docs/assets.md)) |
+| Ask human | Paid, required reciprocal/badge, upvote-for-credits, legal location, domain mail, DNS/meta, rejection resubmit, unauthorized bulk PRs, new design exports |
 | Report | Counts + reasons for submitted / pending / skipped; no third-party URL spam unless asked |
 
 Product fields: [product-template](docs/product-template.md) · Library: [library](docs/library.md) · Email: [email](docs/email.md) · Funnel: [funnel](docs/funnel.md)
@@ -89,6 +92,7 @@ Product fields: [product-template](docs/product-template.md) · Library: [librar
 | [docs/strategy.md](docs/strategy.md) | Tiers & pace |
 | [docs/reciprocity.md](docs/reciprocity.md) | Reciprocal · badge · `/links` |
 | [docs/library.md](docs/library.md) | Library ledger |
+| [docs/assets.md](docs/assets.md) | Logo / OG / screenshots / video / slogans |
 | [docs/disclaimer.md](docs/disclaimer.md) | Full disclaimer |
 | [docs/troubleshooting.md](docs/troubleshooting.md) | Pitfalls (anonymized) |
 
@@ -101,9 +105,10 @@ Product fields: [product-template](docs/product-template.md) · Library: [librar
 3. **`/links`:** Host reciprocals and badges on a dedicated page, not in homepage body copy; required reciprocals only after you raise the tier.
 4. **Library:** Keep filled CSVs local; this repo ships an empty header only. `targets.yaml` is a historical idea pool — **not guaranteed submittable**.
 5. **Honesty:** Accurate product copy; matching categories; location / entity / email consistent with legal pages or expect rejection.
-6. **Secrets:** Do not commit passwords, cookies, verify tokens, or filled ledgers (see `.gitignore`).
-7. **GitHub lists:** Read CONTRIBUTING first; no bulk PRs without the account owner’s authorization.
-8. **Blog-comment batching:** Lives only on branch `old`; not promoted in v3.
+6. **Media:** Most sites want logo / OG / screenshots and sometimes video; wrong ratio or size gets rejected. Humans export; Agents pick files per site. See [docs/assets.md](docs/assets.md).
+7. **Secrets:** Do not commit passwords, cookies, verify tokens, or filled ledgers (see `.gitignore`).
+8. **GitHub lists:** Read CONTRIBUTING first; no bulk PRs without the account owner’s authorization.
+9. **Blog-comment batching:** Lives only on branch `old`; not promoted in v3.
 
 ---
 

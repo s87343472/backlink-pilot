@@ -15,6 +15,7 @@
 | free_status | free / free-queue / paid / unknown / dead |
 | link_type | dofollow / nofollow / unknown |
 | requires | 无账号 / 注册 / OAuth / 域名邮箱 / meta·DNS / 徽章 / 反链 / 人工审 … |
+| requires_media | 可选：`logo+og+3screenshots`、`logo+video`、`none` 等 |
 | reciprocity | none / optional-badge / required-badge / required-backlink |
 | backlink_placement | 若需反链：如 `/links` |
 | queue_notes | 排队时长、是否排期 launch |

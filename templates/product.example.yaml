@@ -1,7 +1,14 @@
 # Fictional example — not a real product
 name: Northstar Notes
 url: https://northstar-notes.example
+
+# Copy variants (same facts, different lengths)
 tagline: Capture meeting notes and action items in one place
+tagline_short: Meeting notes that become action items
+slogan: Notes that turn into next steps   # alias some sites use for tagline
+elevator: >
+  After every call, Northstar Notes turns what you said into clear notes
+  and assigned follow-ups — in the browser, no install for the demo tier.
 short: >
   Northstar Notes is a lightweight notes app for founders who want
   clear follow-ups after every call.
@@ -9,6 +16,7 @@ long: >
   Northstar Notes helps small teams turn meeting transcripts into
   structured notes and assigned action items. Works in the browser.
   No install required for the demo tier.
+
 email: agent@mail.example   # prefer Agent inbox for signups
 # support_email: support@northstar-notes.example  # human-gated verifies
 location: London, UK          # MUST match Terms / Privacy
@@ -18,11 +26,31 @@ categories:
   - productivity
   - notes
   - saas
-logo: ./assets/logo.png
-screenshots: []
-twitter: https://x.com/example
 keywords:
   - meeting notes
   - action items
+twitter: https://x.com/example
+
+# --- Media (see docs/assets.md) — paths relative to this product folder ---
+assets_dir: ./assets
+favicon: ./assets/favicon.ico
+logo: ./assets/logo-1024.png              # square, prefer transparent PNG ≥512
+logo_wordmark: ./assets/logo-wordmark.png # optional
+og_image: ./assets/og-1200x630.png        # ~1200×630 social / Open Graph
+banner: ./assets/banner-1200x400.png      # optional hero / launch banner
+screenshots:
+  - path: ./assets/screenshot-desktop-1.png
+    alt: Desktop editor showing notes and action items
+    form_factor: desktop
+  - path: ./assets/screenshot-desktop-2.png
+    alt: Sharing a meeting summary with assignees
+    form_factor: desktop
+  - path: ./assets/screenshot-mobile-1.png
+    alt: Mobile inbox of follow-ups
+    form_factor: mobile
+promo_video: ./assets/promo.mp4           # optional; set null if none
+promo_gif: ./assets/promo.gif             # optional
+# gallery_extra: []                       # more images if a site asks for 5+
+
 strategy_tier: standard       # conservative | standard | aggressive
 daily_submit_cap: 4

@@ -62,17 +62,22 @@ Tier detail: [docs/strategy.md](docs/strategy.md).
 
 ### Human handoff (required)
 
-Paid boosts, required reciprocals, badge-required-to-submit, upvote-for-credits, legal location changes, domain-mailbox clicks, DNS/meta not added, rejection resubmits, unauthorized bulk GitHub PRs.
+Paid boosts, required reciprocals, badge-required-to-submit, upvote-for-credits, legal location changes, domain-mailbox clicks, DNS/meta not added, rejection resubmits, unauthorized bulk GitHub PRs, new logo/OG/screenshot/video exports.
 
 ---
 
 ## 4. Product card (required before submit)
 
-Load from user file or ask. Fields: [docs/product-template.md](docs/product-template.md).
+Load from user file or ask. Fields: [docs/product-template.md](docs/product-template.md). Media checklist: [docs/assets.md](docs/assets.md).
 
 Minimum: `name`, `url`, tagline or short, `email`, `location`, categories/fit, tier, daily cap.
 
-**Hard check:** `location` must match Terms/Privacy; if not → ask human, do not invent.
+**Media minimum (most directories):** a usable square logo path; at least one product screenshot; prefer `og_image` (~1200×630) and `tagline_short`. If the site requires banner/video, those product-card paths must exist or mark `skipped` + `skip_reason=missing-media` (or ask the human).
+
+**Hard checks:**
+- `location` matches Terms/Privacy; else ask human
+- Media paths exist on disk; obviously tiny / wrong ratio → ask or swap fallback
+- **Do not** upload random junk as product UI unless the human allows placeholders
 
 Never store passwords in git. Fictional example: [templates/product.example.yaml](templates/product.example.yaml).
 
@@ -82,7 +87,9 @@ Never store passwords in git. Fictional example: [templates/product.example.yaml
 
 Header: [templates/library.schema.csv](templates/library.schema.csv). Docs: [docs/library.md](docs/library.md).
 
-Columns: `domain,name,submit_url,free_status,link_type,requires,reciprocity,backlink_placement,queue_notes,email_behavior,fit,last_checked,result_by_product,skip_reason,notes`
+Columns: `domain,name,submit_url,free_status,link_type,requires,requires_media,reciprocity,backlink_placement,queue_notes,email_behavior,fit,last_checked,result_by_product,skip_reason,notes`
+
+- `requires_media` examples: `logo+og+3screenshots`, `logo+video`, `none`
 
 - Encode `result_by_product` like `not_tried|submitted|pending|live|rejected|skipped`
 - Filled file often named `library.filled.csv` (gitignored)
@@ -104,9 +111,10 @@ Columns: `domain,name,submit_url,free_status,link_type,requires,reciprocity,back
 1. Load product card + today's submit count (if at cap → mail/ledger only)
 2. Filter library: fit match ∧ free|free-queue ∧ not skip ∧ product not_tried
 3. If badge/backlink needed: confirm /links ready (raised tier only for required backlink)
-4. Submit one → mark submitted/pending → repeat until 2–4 or queue empty
-5. Process inbox verifies
-6. Report to human: submitted / pending / skipped(reason) / human TODOs
+4. If `requires_media` set: confirm product-card files exist; else skip/ask
+5. Submit one → mark submitted/pending → repeat until 2–4 or queue empty
+6. Process inbox verifies
+7. Report to human: submitted / pending / skipped(reason) / human TODOs
 ```
 
 Funnel: [docs/funnel.md](docs/funnel.md).
@@ -131,6 +139,7 @@ Pattern-level help: [docs/troubleshooting.md](docs/troubleshooting.md) (email ty
 
 - [ ] Read this file + user overrides for tier/cap
 - [ ] Product card path known; location/email rules known
+- [ ] Media paths ready (logo / screenshots; OG, banner, video if the site needs them) — [assets](docs/assets.md)
 - [ ] Local library path known
 - [ ] `/links` URL known or none
 - [ ] Agent inbox available (or human handles verifies)

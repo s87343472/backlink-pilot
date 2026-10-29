@@ -13,6 +13,7 @@ No named directories. Pattern-level issues only.
 | Requires reciprocal first | required-backlink | Skip on Standard; `/links` only if tier raised |
 | Stuck on ownership | meta/DNS not added | Human adds → Agent verify |
 | Fit rejection (e.g. AI-only) | Wrong product class | `skip_reason=fit-mismatch` |
+| Image/video rejected | Wrong ratio, too small, oversize, watermark | Re-export per [assets.md](assets.md); or skip with `missing-media` |
 | Captcha wall | Automation limits | Stop for human; or use a no-captcha path |
 
 Still honor the daily cap and the [disclaimer](disclaimer.md).

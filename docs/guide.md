@@ -25,9 +25,9 @@ See [strategy.md](strategy.md). Short version: ~2–4 real submits/day; rotate p
 
 See [reciprocity.md](reciprocity.md). Host swaps/badges on `/links`; skip required reciprocals on Standard by default.
 
-## 5. Product card
+## 5. Product card and media
 
-See [product-template.md](product-template.md). Location and email must match legal pages.
+See [product-template.md](product-template.md) and [assets.md](assets.md). Location and email must match legal pages; prepare logo / OG / screenshots / slogan variants (and optional video) before submit.
 
 ## 6. Funnel
 

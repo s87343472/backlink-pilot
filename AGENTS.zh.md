@@ -62,17 +62,22 @@
 
 ### 人（你必须交接）
 
-付费、强制互链、不挂就不能提交的徽章、点赞换积分、改法律地点、域名邮箱点击、DNS/meta、拒信重交、未授权 GitHub 批量 PR。
+付费、强制互链、不挂就不能提交的徽章、点赞换积分、改法律地点、域名邮箱点击、DNS/meta、拒信重交、未授权 GitHub 批量 PR、补做/重导 logo·OG·截图·视频。
 
 ---
 
 ## 4. 产品卡（提交前必有）
 
-向用户要齐或读本地文件。字段说明：[docs/product-template.zh.md](docs/product-template.zh.md)。
+向用户要齐或读本地文件。字段说明：[docs/product-template.zh.md](docs/product-template.zh.md)。媒体清单：[docs/assets.zh.md](docs/assets.zh.md)。
 
 最低限度：`name`、`url`、`tagline` 或 short、`email`、`location`、`categories`/`fit`、策略档、日限额。
 
-**硬检查：** `location` 与站点条款/隐私是否一致；若不一致 → 先问人，不要瞎填。
+**媒体最低限度（多数目录）：** 可用的方 logo 路径；至少 1 张产品截图；建议备齐 `og_image`（约 1200×630）与 `tagline_short`。站方若写明要 banner/视频，产品卡对应字段必须有有效文件，否则该站 `skipped` + `skip_reason=missing-media`（或问人补齐）。
+
+**硬检查：**
+- `location` 与条款/隐私一致；否则先问人
+- 产品卡里的媒体路径在磁盘上存在；明显过小/比例离谱 → 问人或换备选文件
+- **不要**用无关随机图冒充产品 UI（除非人明确授权占位）
 
 密码不进仓库。示例（虚构）：[templates/product.example.yaml](templates/product.example.yaml)。
 
@@ -82,7 +87,9 @@
 
 空表头：[templates/library.schema.csv](templates/library.schema.csv)。说明：[docs/library.zh.md](docs/library.zh.md)。
 
-字段：`domain,name,submit_url,free_status,link_type,requires,reciprocity,backlink_placement,queue_notes,email_behavior,fit,last_checked,result_by_product,skip_reason,notes`
+字段：`domain,name,submit_url,free_status,link_type,requires,requires_media,reciprocity,backlink_placement,queue_notes,email_behavior,fit,last_checked,result_by_product,skip_reason,notes`
+
+- `requires_media` 示例：`logo+og+3screenshots`、`logo+video`、`none`
 
 - `result_by_product` 建议编码：`not_tried|submitted|pending|live|rejected|skipped`
 - 实填文件名常见：`library.filled.csv`（应被 gitignore）
@@ -104,9 +111,10 @@
 1. 读产品卡 + 今日已提交计数（若 ≥ 限额则只做邮件/记账，不再交）
 2. 从库筛选：fit 匹配 ∧ free|free-queue ∧ 非 skip ∧ 该产品 not_tried
 3. 若需徽章/反链：先确认 /links（升档时）就绪
-4. 提交 1 个 → 写库 submitted/pending → 重复直至满 2–4 或队列空
-5. 处理收件箱验证
-6. 向人汇报：submitted / pending / skipped(reason) / 需要人做的事
+4. 若 `requires_media` 非空：确认产品卡文件齐全再交；缺则 skip/问人
+5. 提交 1 个 → 写库 submitted/pending → 重复直至满 2–4 或队列空
+6. 处理收件箱验证
+7. 向人汇报：submitted / pending / skipped(reason) / 需要人做的事
 ```
 
 漏斗总览：[docs/funnel.zh.md](docs/funnel.zh.md)。
@@ -131,6 +139,7 @@
 
 - [ ] 已读本文件与用户覆盖的策略/限额
 - [ ] 产品卡路径已知；地点/邮箱规则已知
+- [ ] 媒体路径齐全（logo / 截图；按站还需 OG、banner、视频）— [assets](docs/assets.zh.md)
 - [ ] 本地 library 路径已知
 - [ ] `/links` URL 已知或为 none
 - [ ] Agent 收件箱可用（或用户说明验证由人点）

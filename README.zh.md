@@ -15,7 +15,7 @@
 | **v3（本分支 `main`）** | 策略档、日限额、邮件闭环、`/links`、外链库账本、风险说明；给人看的 README + 给 Agent 的 [`AGENTS.zh.md`](AGENTS.zh.md) |
 | **v2.1（分支 [`old`](https://github.com/s87343472/backlink-pilot/tree/old)）** | 旧 CLI：OpenClaw / Claude Code / bb-browser / Playwright 等自动化工具箱 |
 
-仓库里有：方法文档、空模板（产品卡、library CSV、`/links` 示例）、历史参考清单 `targets.yaml`（**未再维护**）。  
+仓库里有：方法文档、空模板（产品卡含媒体字段、library CSV、`/links` 示例、[assets](docs/assets.zh.md) 清单）、历史参考清单 `targets.yaml`（**未再维护**）。  
 仓库里没有：可运行批量提交主程序（在 `old`）、真实提交日志、密码 / cookie、填好的目录站名单。
 
 ---
@@ -44,10 +44,11 @@
 
 1. 读本文 [注意事项](#注意事项) 与 [免责声明](#免责声明)（完整版：[docs/disclaimer.zh.md](docs/disclaimer.zh.md)）
 2. 复制 [templates/product.example.yaml](templates/product.example.yaml) 改成你的产品（**地点、邮箱须与条款 / 隐私一致**）
-3. 复制 [templates/library.schema.csv](templates/library.schema.csv) 到本地（如 `library.filled.csv`），**不要把实填库推进公开 git**
-4. 按需建站点 `/links` 页（模板：[templates/links-page.example.md](templates/links-page.example.md)；说明：[docs/reciprocity.zh.md](docs/reciprocity.zh.md)）
-5. 把 [`AGENTS.zh.md`](AGENTS.zh.md)（或 [templates/agent-prompt.md](templates/agent-prompt.md) 中文段）贴进 Agent 的系统 / 项目说明；写明策略档（建议标准）与日限额 2–4
-6. 给 Agent 一个可收验证信的邮箱；域名 `support@` 留给你点
+3. **准备媒体包**：logo（方图透明底）、OG（常见 1200×630）、桌面/移动截图、可选 banner / 宣传视频，以及短/长口号变体。清单见 [docs/assets.zh.md](docs/assets.zh.md)；路径写进产品卡
+4. 复制 [templates/library.schema.csv](templates/library.schema.csv) 到本地（如 `library.filled.csv`），**不要把实填库推进公开 git**
+5. 按需建站点 `/links` 页（模板：[templates/links-page.example.md](templates/links-page.example.md)；说明：[docs/reciprocity.zh.md](docs/reciprocity.zh.md)）
+6. 把 [`AGENTS.zh.md`](AGENTS.zh.md)（或 [templates/agent-prompt.md](templates/agent-prompt.md) 中文段）贴进 Agent 的系统 / 项目说明；写明策略档（建议标准）与日限额 2–4
+7. 给 Agent 一个可收验证信的邮箱；域名 `support@` 留给你点
 
 **必须人做的事（Agent 应停下来问你）：**
 
@@ -59,6 +60,7 @@
 | 强制互链、不挂徽章就不能提交、点赞换积分 | 策略例外 |
 | 拒信后改地点 / 换邮箱再交 | 可能涉及法律页 |
 | 验证码 / 2FA / 未授权批量 GitHub PR | 账号与合规 |
+| Logo / OG / 截图 / 视频终稿 | 设计导出与品牌；Agent 只检查与上传 |
 
 配置参考：[docs/agent-setup.zh.md](docs/agent-setup.zh.md) · Grok Bot 案例（虚构产品 Northstar Notes）：[docs/grok-bot.zh.md](docs/grok-bot.zh.md) · 总指南：[docs/guide.zh.md](docs/guide.zh.md)
 
@@ -75,7 +77,8 @@
 | 允许 | free、free-queue；自愿徽章换 dofollow；人加好后的 meta/DNS verify |
 | 跳过 | 付费；强制互链；点赞换积分；死站；fit 不符 |
 | 角色 | 研究打标 → 提交（优先 HTTP/API）→ 邮件分流 → 写本地 CSV |
-| 必问人 | 付费、强制互链/强制徽章、点赞换积分、改法律地点、域名邮箱、DNS/meta、拒信重交、未授权批量 PR |
+| 媒体 | 提交前核对产品卡路径；缺站方必填图/视频 → skip 或问人（[assets](docs/assets.zh.md)） |
+| 必问人 | 付费、强制互链/强制徽章、点赞换积分、改法律地点、域名邮箱、DNS/meta、拒信重交、未授权批量 PR、补设计导出 |
 | 汇报 | 提交 / 等待 / 跳过数量与原因；非请求时不刷屏贴第三方 URL |
 
 产品字段：[docs/product-template.zh.md](docs/product-template.zh.md) · 库字段：[docs/library.zh.md](docs/library.zh.md) · 邮件：[docs/email.zh.md](docs/email.zh.md) · 漏斗：[docs/funnel.zh.md](docs/funnel.zh.md)
@@ -89,6 +92,7 @@
 | [docs/strategy.zh.md](docs/strategy.zh.md) | 策略档与节奏 |
 | [docs/reciprocity.zh.md](docs/reciprocity.zh.md) | 交换链 · 徽章 · `/links` |
 | [docs/library.zh.md](docs/library.zh.md) | 外链库账本 |
+| [docs/assets.zh.md](docs/assets.zh.md) | Logo / OG / 截图 / 视频 / 口号 |
 | [docs/disclaimer.zh.md](docs/disclaimer.zh.md) | 风险免责全文 |
 | [docs/troubleshooting.zh.md](docs/troubleshooting.zh.md) | 常见坑（脱敏） |
 
@@ -101,9 +105,10 @@
 3. **`/links`**：交换链与徽章放独立页，勿塞进首页主内容；强制互链仅在你升档后使用。
 4. **外链库**：实填 CSV 本地保留；本仓库只提供空表头。`targets.yaml` 是历史灵感池，**不保证仍可提交**。
 5. **诚实与一致**：产品描述真实；分类匹配；地点 / 主体 / 邮箱与法律页一致，否则易被拒。
-6. **秘密**：密码、cookie、验证 token、实填库不要提交到 git（见 `.gitignore`）。
-7. **GitHub 列表**：先读目标仓库 CONTRIBUTING；无账号主人授权不做批量代开 PR。
-8. **博客评论批量**：仅留在分支 `old`，v3 不主推。
+6. **媒体**：多数站要 logo / OG / 截图甚至视频；比例与体积不对会被拒。人事先导出，Agent 按站选用；详见 [docs/assets.zh.md](docs/assets.zh.md)。
+7. **秘密**：密码、cookie、验证 token、实填库不要提交到 git（见 `.gitignore`）。
+8. **GitHub 列表**：先读目标仓库 CONTRIBUTING；无账号主人授权不做批量代开 PR。
+9. **博客评论批量**：仅留在分支 `old`，v3 不主推。
 
 ---
 

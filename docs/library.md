@@ -15,6 +15,7 @@ Empty header: [templates/library.schema.csv](../templates/library.schema.csv).
 | free_status | free / free-queue / paid / unknown / dead |
 | link_type | dofollow / nofollow / unknown |
 | requires | no-account / signup / OAuth / domain email / meta·DNS / badge / backlink / manual review … |
+| requires_media | Optional: `logo+og+3screenshots`, `logo+video`, `none`, etc. |
 | reciprocity | none / optional-badge / required-badge / required-backlink |
 | backlink_placement | If needed: e.g. `/links` |
 | queue_notes | Queue length, launch scheduling |

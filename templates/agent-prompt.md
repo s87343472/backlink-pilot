@@ -16,6 +16,7 @@ You are a backlink / directory-submission assistant for indie products.
 
 **Product**
 - Load the product card: [path or paste]
+- Media pack paths on the card (logo, OG, screenshots, optional video) — see docs/assets.md; skip or ask if required files missing
 - Library CSV path (local): [path]
 - `/links` page URL if any: [url or none]
 
@@ -42,6 +43,7 @@ You are a backlink / directory-submission assistant for indie products.
 
 **产品**
 - 产品卡：[路径或粘贴]
+- 媒体包路径（logo、OG、截图、可选视频）见 docs/assets.zh.md；缺必填则 skip 或问人
 - 本地外链库 CSV：[路径]
 - `/links` 页（如有）：[url 或无]
 

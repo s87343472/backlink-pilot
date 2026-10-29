@@ -13,6 +13,7 @@
 | 要求先互链 | required-backlink | 标准档 skip；升档才写 `/links` |
 | 卡在所有权 | 未加 meta/DNS | 人加完 → Agent verify |
 | fit 拒信（如只要 AI 工具） | 产品类型不符 | `skip_reason=fit-mismatch` |
+| 拒图 / 上传失败 | 比例错、过小、超体积、水印 | 按 [assets.zh.md](assets.zh.md) 重导；或 `missing-media` 跳过 |
 | 浏览器卡验证码 | 自动化受限 | 停下来找人；或换无验证码渠道 |
 
 仍遵守日限额与 [免责声明](disclaimer.zh.md)。

@@ -1,28 +1,44 @@
 # Product card fields
 
-Prepare a product card before submitting. Example: [templates/product.example.yaml](../templates/product.example.yaml).
+Prepare a product card before submitting. Example: [templates/product.example.yaml](../templates/product.example.yaml).  
+Media checklist: [assets.md](assets.md).
 
-## Field list
+## Core fields
 
 | Field | Notes |
 |-------|--------|
 | name | Product name |
 | url | Primary URL |
-| tagline | One-liner |
+| tagline / slogan | One-line pitch |
+| tagline_short | Shorter variant for hard caps |
+| elevator | ~10s spoken version (optional) |
 | short / long | Short / long description |
-| email | Signup email (see below) |
+| email | Signup email |
 | location | Legal location — **must match Terms / Privacy** |
 | founder | Display name if required |
 | pricing | free / freemium / paid … |
 | categories | Category keywords |
-| logo / screenshots | Paths or URLs |
 | twitter / social | Optional |
-| keywords | For search / categorization |
+| keywords | Search / categorization |
+| strategy_tier / daily_submit_cap | Tier and daily cap |
+
+## Media fields
+
+| Field | Notes |
+|-------|--------|
+| assets_dir | Assets folder |
+| favicon | Site icon |
+| logo | Square logo (prefer transparent PNG ≥512) |
+| logo_wordmark | Horizontal mark (optional) |
+| og_image | Social / OG, often 1200×630 |
+| banner | Launch / hero (optional) |
+| screenshots[].path / alt / form_factor | Desktop or mobile |
+| promo_video / promo_gif | Promo video or GIF; else `null` |
 
 ## Email and location
 
-- **Agent / bot inbox:** good for many signups and auto-clicking verify links  
-- **Domain support@:** looks more official; codes/links often need a human; some directories **reject** disposable or agent mail  
-- Location and entity must match legal pages or you risk rejection  
+- **Agent / bot inbox:** good for many signups and auto verify clicks  
+- **Domain support@:** more official; often human-gated; some directories reject disposable/agent mail  
+- Location and entity must match legal pages  
 
-Passwords, cookies, API tokens: **never commit**.
+Passwords, cookies, API tokens: **never commit**. Whether large media lives in git is your choice; the product card must point at **paths the Agent can read**.

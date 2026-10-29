@@ -25,9 +25,9 @@ v2 CLI 与浏览器自动化整包在分支 [`old`](https://github.com/s87343472
 
 见 [reciprocity.zh.md](reciprocity.zh.md)。交换与徽章放在 `/links`；强制互链标准档默认不接。
 
-## 5. 产品卡
+## 5. 产品卡与媒体
 
-见 [product-template.zh.md](product-template.zh.md)。地点与邮箱须与条款一致。
+见 [product-template.zh.md](product-template.zh.md) 与 [assets.zh.md](assets.zh.md)。地点与邮箱须与条款一致；logo / OG / 截图 / 口号变体（及可选视频）提交前备齐。
 
 ## 6. 漏斗
 
